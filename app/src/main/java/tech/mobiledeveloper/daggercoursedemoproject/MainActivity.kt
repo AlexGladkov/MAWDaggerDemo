@@ -3,18 +3,22 @@ package tech.mobiledeveloper.daggercoursedemoproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dagger.android.AndroidInjection
+import tech.mobiledeveloper.daggercoursedemoproject.dagger.FullRepository
 import tech.mobiledeveloper.daggercoursedemoproject.dagger.NetworkClient
+import tech.mobiledeveloper.daggercoursedemoproject.manual.ApplicationScope
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject lateinit var networkClient: NetworkClient
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as MainApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+//        val appComponent = (application as MainApplication).appComponent
+//        appComponent.activityComponent().create().inject(this)
+//        setContentView(R.layout.activity_main)
+//
+//        fullRepository.makeRequest()
 
-        networkClient.doSomething()
+        val appScope = ApplicationScope()
+        appScope.service.performAction()
     }
 }
