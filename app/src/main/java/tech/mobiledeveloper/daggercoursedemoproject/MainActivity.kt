@@ -19,6 +19,6 @@ class MainActivity : AppCompatActivity() {
 //        fullRepository.makeRequest()
 
         val appScope = ApplicationScope()
-        appScope.service.performAction()
+        appScope.secondService.performAction()
     }
 }
